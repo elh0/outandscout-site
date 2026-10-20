@@ -146,6 +146,16 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
 .who { display: flex; gap: 8px; flex-wrap: wrap; }
 .who span { border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; }
 .jbtn { display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 22px; border-radius: 999px; background: var(--paper); color: var(--ink); text-decoration: none; font-size: 16px; letter-spacing: -.01em; }
+.su { display: grid; gap: 12px; width: 100%; max-width: 560px; position: relative; }
+.su-note { margin: 0; font-size: 15px; line-height: 1.5; }
+.su-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.su input[type=email] { flex: 1 1 220px; min-width: 0; height: 52px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line); background: rgba(239,237,230,.04); color: var(--paper); font-size: 16px; font-family: inherit; }
+.su input[type=email]::placeholder { color: var(--q); }
+.su input[type=email]:focus { outline: none; border-color: var(--mark); }
+.su .jbtn { border: 0; cursor: pointer; font-family: inherit; }
+.su .jbtn:disabled { opacity: .6; }
+.su-done { min-height: 1.3em; margin: 0; }
+.su-done a { color: var(--paper); }
 .jbtn::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--sun); }
 .road { display: flex; gap: 10px 22px; flex-wrap: wrap; }
 .fl { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 0 28px; }
@@ -443,16 +453,20 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
         <div class="nm mono"><span>Founding</span><span class="q">Launch</span></div>
         <div class="amt"><b><sup>£</sup>14.99</b><s>£29.99</s></div>
         <p>Pro at half price for the people who scout with us first. Join the list and we send your code on launch day.</p>
-        <a class="ghost go" href="mailto:hello@eltio.studio?subject=Out%20%26%20Scout%20founding%20price">Join the founding list</a>
+        <a class="ghost go" href="#join" data-signup-list="founding" data-signup-button="Join the founding list" data-signup-note="Founding list: we send your half-price code on launch day." data-signup-done="You're on the founding list. Your code comes on launch day.">Join the founding list</a>
       </article>
     </div>
     <div class="small mono q"><span>Testing it now? Pro is yours free at launch.</span><span>Production company? <a href="mailto:hello@eltio.studio?subject=Out%20%26%20Scout%20team%20price">Ask about a team price</a></span></div>
   </div>
-  <div class="join">
+  <div class="join" id="join">
     <span class="mono q">Testing now on real recces</span>
     <h2>Come out with us.</h2>
     <div class="who mono"><span>DPs</span><span>Directors</span><span>Location scouts</span><span>Photographers</span></div>
-    <a class="jbtn" href="mailto:hello@eltio.studio?subject=Out%20%26%20Scout%20test%20invite">Ask for a test invite</a>
+    <form class="su" data-signup data-app="outandscout" data-list="beta" data-done="You're on the list. Your test invite comes to that email." novalidate>
+      <p class="su-note q">Leave your email for a test invite. Pro is yours free at launch.</p>
+      <div class="su-row"><label class="sr" for="su-em">Your email</label><input id="su-em" type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required><input class="sr" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="jbtn" type="submit">Ask for a test invite</button></div>
+      <p class="su-done mono q" role="status" aria-live="polite"></p>
+    </form>
     <div class="road mono q"><span>Now · TestFlight</span><span>Next · more testers</span><span>Then · App Store</span></div>
   </div>
   <footer class="mono q fl"><span>Out &amp; Scout (2026)</span><span><a href="support/">Support</a> · <a href="privacy/">Privacy</a></span></footer>
@@ -462,5 +476,6 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
 <script src="site.js"></script>
 <script src="scene.js" defer></script>
 <script src="sweep.js"></script>
+<script src="signup.js" defer></script>
 </body>
 </html>
