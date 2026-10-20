@@ -41,6 +41,7 @@ h2 { font-size: clamp(30px, 4.2vw, 60px); line-height: 1; }
 
 /* ---------- the viewfinder over everything ---------- */
 .hud { position: fixed; inset: 0; z-index: 40; pointer-events: none; }
+.hud::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: calc(var(--sat) + 72px); background: linear-gradient(180deg, rgba(11,10,9,.9), rgba(11,10,9,.6) 55%, rgba(11,10,9,0)); }
 .hud .cm { position: absolute; width: 22px; height: 22px; border: 0 solid var(--mark); }
 .hud .cm.tl { top: calc(var(--sat) + var(--inset)); left: var(--inset); border-top-width: 1.5px; border-left-width: 1.5px; }
 .hud .cm.tr { top: calc(var(--sat) + var(--inset)); right: var(--inset); border-top-width: 1.5px; border-right-width: 1.5px; }
@@ -270,7 +271,15 @@ input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 
   .dock nav a { padding: 0 9px; }
   .hud .rd .long { display: none; }
 }
-@media (max-width: 899px) { .hud .rd .long { display: none; } }
+@media (max-width: 899px) {
+  .hud .rd .long { display: none; }
+  /* phones: shorter chapters, and solid glass on the cards so scrolling over the 3D phone stays smooth */
+  .step { min-height: 110svh; }
+  .step:first-child { min-height: 100svh; }
+  .tail { height: 30svh; }
+  .card { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(14,13,11,.9); }
+  .sw-plan { min-height: 120px; align-content: start; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .open img, .pl-track, .flash.go, .iris.go { animation: none !important; }
