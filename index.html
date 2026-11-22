@@ -234,6 +234,8 @@ h1,h2,h3{font-family:var(--num);font-weight:600;margin:0;text-wrap:balance}
 .end{text-align:center;padding-block:clamp(110px,18vh,200px) clamp(90px,14vh,140px)}
 .end h2{font-size:clamp(48px,8.5vw,112px);line-height:1;letter-spacing:-.055em}
 .end .cta{margin-top:34px;display:flex;justify-content:center}
+.end .soon b{color:var(--sun);font-weight:600}.end .soon{margin:22px auto 0;max-width:30em;color:var(--grey);font-size:16px}.su{margin:22px auto 0;max-width:460px}.su-row{display:flex;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:5px 5px 5px 18px}.su input[type=email]{flex:1;min-width:0;border:0;background:none;font:400 16px var(--num);color:var(--ink);outline:none}.su .pill{flex:none;border:0;cursor:pointer}.su .pill:disabled{opacity:.6}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.su-done{min-height:1.4em;margin-top:10px;font:400 12px var(--mono);letter-spacing:.04em;color:var(--grey)}.su.sent .su-row{border-color:var(--sun)}@media(max-width:420px){.su .pill{padding:0 14px;font-size:14px}}
+
 .end .shot.last{margin:clamp(48px,8vh,84px) auto 0;transform:none}
 footer{border-top:1px solid rgba(21,21,19,.1);padding-block:22px calc(26px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--grey)}
 footer nav{display:flex;gap:18px}
@@ -245,7 +247,7 @@ footer nav{display:flex;gap:18px}
 </style>
 </head>
 <body>
-<header class="nav wrap"><div class="row max"><a class="wm" href="#top">Out &amp; Sc<span class="sd"></span>out</a><nav><a href="#how" class="hide">How it works</a><a href="#price" class="hide">Price</a><a class="pill sm" href="https://apps.apple.com/app/id6823591366">Download</a></nav></div></header>
+<header class="nav wrap"><div class="row max"><a class="wm" href="#top">Out &amp; Sc<span class="sd"></span>out</a><nav><a href="#how" class="hide">How it works</a><a href="#price" class="hide">Price</a><a class="pill sm" href="#get">Coming soon</a></nav></div></header>
 
 <main id="top">
 <section class="open wrap">
@@ -253,7 +255,7 @@ footer nav{display:flex;gap:18px}
     <div class="name">Out &amp; Scout</div>
     <h1>Scout it once.<br>Know the shoot day.</h1>
     <p>We wanted to make recceing a little easier.</p>
-    <div class="cta"><a class="pill" href="https://apps.apple.com/app/id6823591366">Download free</a><a class="link" href="#how">See how it works ›</a></div>
+    <div class="cta"><a class="pill" href="#get">Get early access</a><a class="link" href="#how">See how it works ›</a></div>
     <div class="stage0" id="stage0">
       <div class="shot"><img src="img/mk-hero.webp" alt="Hands holding an iPhone on its side, running the Out &amp; Scout camera" fetchpriority="high"></div>
       <div class="note lab">iPhone · for DPs &amp; directors on the recce</div>
@@ -335,12 +337,13 @@ footer nav{display:flex;gap:18px}
 </section>
 
 <section class="end wrap" id="get">
-  <div class="max rv"><h2>Scout it once.</h2><div class="cta"><a class="pill sun" href="https://apps.apple.com/app/id6823591366">Download on the App Store</a></div>
+  <div class="max rv"><h2>Scout it once.</h2><p class="soon">Coming soon to the App Store. Join the early list and we'll email you on launch day, while Pro is <b>£9.99</b> instead of £19.99 for the first two weeks.</p><form class="su" data-signup data-app="outandscout" data-list="launch" data-done="You're on the early list. We'll email you on launch day." novalidate><div class="su-row"><label class="sr" for="su-em">Your email</label><input id="su-em" type="email" name="email" inputmode="email" autocomplete="email" placeholder="you@email.com" required><input class="sr" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="pill sun" type="submit">Join the early list</button></div><p class="su-done" role="status" aria-live="polite"></p></form>
     <div class="shot last"><img src="img/mk-close.webp" alt="Close up of Out &amp; Scout on iPhone: shot 2A, best light 15:18 to 15:52, ¾ backlit" loading="lazy"></div></div>
 </section>
 
 <footer class="wrap"><div class="max" style="display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;width:100%"><span>© 2026 Eltio Studio Ltd</span><nav><a href="support/">Help</a><a href="privacy/">Privacy</a><span>hello@eltio.studio</span></nav></div></footer>
 </main>
+<script src="signup.js" defer></script>
 
 <script>
 /* the walk-through */
